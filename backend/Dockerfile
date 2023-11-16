@@ -1,5 +1,4 @@
 FROM openjdk:19-jdk-slim
-VOLUME /tmp
 
 COPY backend/target/*.jar backend.jar
 
