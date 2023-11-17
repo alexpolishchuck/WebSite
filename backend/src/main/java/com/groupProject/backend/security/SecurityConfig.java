@@ -41,7 +41,8 @@ public class SecurityConfig {
                         "/logout",
                         "/login_callback",
                         "/register",
-                        "/").permitAll()
+                        "/",
+                        "/test1").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .logout()

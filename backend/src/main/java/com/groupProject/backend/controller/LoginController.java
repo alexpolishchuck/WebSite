@@ -160,4 +160,17 @@ public class LoginController {
 
         return redirectUri;
     }
+
+    @GetMapping("/test")
+    public String test()
+    {
+        logger.info("TESTTESTTEST");
+        return "TEST";
+    }
+    @GetMapping("/test1")
+    public String test1()
+    {
+        logger.info("TEST!!!1111");
+        return "TEST1111";
+    }
 }
