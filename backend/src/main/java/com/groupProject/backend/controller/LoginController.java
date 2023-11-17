@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -92,19 +93,19 @@ public class LoginController {
         response.sendRedirect(authorizeUrl);
     }
 
-    @GetMapping("/test")
+    @GetMapping(value = "/test", produces = MediaType.TEXT_HTML_VALUE)
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String test()
     {
         return "<html>\n" + "<header><title>Welcome</title></header>\n" +
                 "<body>\n" + "Hello world\n" + "</body>\n" + "</html>";
     }
-    @GetMapping("/test1")
+    @GetMapping(value = "/test1", produces = MediaType.TEXT_HTML_VALUE)
     @PreAuthorize("hasRole('ROLE_USER')")
     public String test1()
     {
-        return "<html>\n" + "<header><title>Welcome</title></header>\n" +
-                "<body>\n" + "Hello world\n" + "</body>\n" + "</html>";
+        return ("<html>\n" + "<header><title>Welcome</title></header>\n" +
+                "<body>\n" + "Hello world\n" + "</body>\n" + "</html>");
     }
     /**
      * Користувач переадресовується на цей URL у випадку успішної авторизації.
