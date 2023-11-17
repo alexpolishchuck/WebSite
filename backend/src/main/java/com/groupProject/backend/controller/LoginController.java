@@ -93,20 +93,7 @@ public class LoginController {
         response.sendRedirect(authorizeUrl);
     }
 
-    @GetMapping(value = "/test", produces = MediaType.TEXT_HTML_VALUE)
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String test()
-    {
-        return "<html>\n" + "<header><title>Welcome</title></header>\n" +
-                "<body>\n" + "Hello world\n" + "</body>\n" + "</html>";
-    }
-    @GetMapping(value = "/test1", produces = MediaType.TEXT_HTML_VALUE)
-    @PreAuthorize("hasRole('ROLE_USER')")
-    public String test1()
-    {
-        return ("<html>\n" + "<header><title>Welcome</title></header>\n" +
-                "<body>\n" + "Hello world\n" + "</body>\n" + "</html>");
-    }
+
     /**
      * Користувач переадресовується на цей URL у випадку успішної авторизації.
      *

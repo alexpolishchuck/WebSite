@@ -5,6 +5,7 @@ import com.groupProject.backend.security.Auth0Management;
 import com.groupProject.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -153,5 +154,20 @@ public class UserController {
 
         userService.deleteUser(userId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping(value = "/test")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public String test()
+    {
+        return "<html>\n" + "<header><title>Welcome</title></header>\n" +
+                "<body>\n" + "Hello world\n" + "</body>\n" + "</html>";
+    }
+    @GetMapping(value = "/test1")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public String test1()
+    {
+        return ("<html>\n" + "<header><title>Welcome</title></header>\n" +
+                "<body>\n" + "Hello world\n" + "</body>\n" + "</html>");
     }
 }
