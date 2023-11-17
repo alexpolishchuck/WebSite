@@ -92,13 +92,13 @@ public class LoginController {
         response.sendRedirect(authorizeUrl);
     }
 
-    @GetMapping
+    @GetMapping("/test")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void test()
     {
 
     }
-    @GetMapping
+    @GetMapping("/test1")
     @PreAuthorize("hasRole('ROLE_USER')")
     public void test1()
     {
