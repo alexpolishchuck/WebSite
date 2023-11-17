@@ -96,13 +96,15 @@ public class LoginController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String test()
     {
-        return "";
+        return "<html>\n" + "<header><title>Welcome</title></header>\n" +
+                "<body>\n" + "Hello world\n" + "</body>\n" + "</html>";
     }
     @GetMapping("/test1")
     @PreAuthorize("hasRole('ROLE_USER')")
     public String test1()
     {
-        return "";
+        return "<html>\n" + "<header><title>Welcome</title></header>\n" +
+                "<body>\n" + "Hello world\n" + "</body>\n" + "</html>";
     }
     /**
      * Користувач переадресовується на цей URL у випадку успішної авторизації.
