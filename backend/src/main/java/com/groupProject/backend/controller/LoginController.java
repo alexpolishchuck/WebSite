@@ -104,6 +104,7 @@ public class LoginController {
     public void authenticationCallback(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         try {
+            System.out.println("TEST");
             // Parse the request
             Tokens tokens = authenticationController.handle(request, response);
             TokenAuthentication tokenAuth = new TokenAuthentication(JWT.decode(tokens.getIdToken()));
