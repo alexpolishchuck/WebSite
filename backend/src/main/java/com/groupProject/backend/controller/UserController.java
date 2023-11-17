@@ -61,7 +61,7 @@ public class UserController {
      * @return Відповідь, яка містить список всіх користувачів або код помилки, якщо користувачі не знайдені.
      */
     @GetMapping
-    @PreAuthorize("hasRole('Manager')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<List<UserDTO>> getAllUsers() {
         logger.info("Received a request to get All Users");
         List<UserDTO> users = userService.getAllUsers();
