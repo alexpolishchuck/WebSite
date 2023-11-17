@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -91,6 +92,18 @@ public class LoginController {
         response.sendRedirect(authorizeUrl);
     }
 
+    @GetMapping
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public void test()
+    {
+
+    }
+    @GetMapping
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public void test1()
+    {
+
+    }
     /**
      * Користувач переадресовується на цей URL у випадку успішної авторизації.
      *
