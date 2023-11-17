@@ -94,15 +94,15 @@ public class LoginController {
 
     @GetMapping("/test")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public void test()
+    public String test()
     {
-
+        return "";
     }
     @GetMapping("/test1")
     @PreAuthorize("hasRole('ROLE_USER')")
-    public void test1()
+    public String test1()
     {
-
+        return "";
     }
     /**
      * Користувач переадресовується на цей URL у випадку успішної авторизації.
