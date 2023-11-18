@@ -42,6 +42,7 @@ public class SecurityConfig {
                         "/login_callback",
                         "/register",
                         "/",
+                        "/TEST",
                         "/test1",
                         "/users/test1").permitAll()
                 .anyRequest().authenticated()
