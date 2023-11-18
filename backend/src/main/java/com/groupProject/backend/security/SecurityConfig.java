@@ -49,7 +49,9 @@ public class SecurityConfig {
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
-                .addLogoutHandler(logoutController()).permitAll();
+                .addLogoutHandler(logoutController()).permitAll()
+                .and()
+                .cors().disable();
 
         return http.build();
     }
