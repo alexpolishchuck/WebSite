@@ -42,16 +42,14 @@ public class SecurityConfig {
                         "/login_callback",
                         "/register",
                         "/",
-                        "/TEST",
+                        "/TEST/",
                         "/test1",
                         "/users/test1").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
-                .addLogoutHandler(logoutController()).permitAll()
-                .and().cors()
-                .and().oauth2ResourceServer().jwt();
+                .addLogoutHandler(logoutController()).permitAll();
 
         return http.build();
     }
