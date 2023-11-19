@@ -45,13 +45,16 @@ public class SecurityConfig {
                         "/TEST/",
                         "/test1",
                         "/users/test1",
-                        "/**").permitAll()
-                .anyRequest().authenticated()
+                        "/**",
+                        "/**/**",
+                        "/products").permitAll()
+                .anyRequest().permitAll()
+              //  .mvcMatchers("/lol").authenticated()
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
                 .addLogoutHandler(logoutController()).permitAll()
-                .and().cors().disable();
+                .and().cors().and().csrf().disable();
 
         return http.build();
     }
