@@ -44,14 +44,14 @@ public class SecurityConfig {
                         "/",
                         "/TEST/",
                         "/test1",
-                        "/users/test1").permitAll()
+                        "/users/test1",
+                        "/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
                 .addLogoutHandler(logoutController()).permitAll()
-                .and()
-                .cors().disable();
+                .and().cors().disable();
 
         return http.build();
     }

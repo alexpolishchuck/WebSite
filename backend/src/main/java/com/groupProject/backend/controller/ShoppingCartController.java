@@ -100,7 +100,7 @@ public class ShoppingCartController {
      * @param shoppingCartEntityDTO Дані товару, який слід видалити із корзини.
      * @return Відповідь, що підтверджує успішне видалення або код помилки, якщо видалення не вдалося.
      */
-    @DeleteMapping("")
+    @DeleteMapping
     public ResponseEntity<String> deleteShoppingCartItem(@Valid @RequestBody  ShoppingCartEntityDTO shoppingCartEntityDTO) {
         logger.info("Received a request to delete shopping Cart Item{}", shoppingCartEntityDTO);
         boolean deleted = shoppingCartService.deleteShoppingCartItem(shoppingCartEntityDTO);
