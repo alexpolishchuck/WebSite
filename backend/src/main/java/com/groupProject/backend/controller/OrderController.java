@@ -66,7 +66,6 @@ public class OrderController {
      * @return Відповідь, що містить інформацію про всі замовлення.
      */
     @GetMapping
-    @PreAuthorize("hasRole('Manager')")
     public ResponseEntity<List<OrderDTO>> getAllOrders() {
         logger.info("Received a request to get all orders: ");
         List<OrderDTO> orders = orderService.getAllOrders();
@@ -133,7 +132,6 @@ public class OrderController {
      * @return Відповідь, що містить інформацію про створене замовлення по Manager ID.
      */
     @GetMapping("/mngrId/{managerId}")
-    @PreAuthorize("hasRole('Manager')")
     public ResponseEntity<List<OrderDTO>> getOrdersByManagerId(@PathVariable Long managerId) {
         logger.info("Received a request to get all Orders by manager id{}", managerId);
         List<OrderDTO> orders = orderService.getOrderByManagerId(managerId);
@@ -179,7 +177,6 @@ public class OrderController {
      * @return Відповідь, що містить інформацію про зміну статуса замовлення на status.
      */
     @PostMapping("/stts/{status}")
-    @PreAuthorize("hasRole('Manager')")
     public ResponseEntity<OrderDTO> updateOrderStatus(@PathVariable String status, @Valid @RequestBody OrderDTO orderDTO) {
         logger.info("Received a request to update order{} with status{}", orderDTO, status);
         orderDTO.setStatus(String.valueOf(Order.OrderStatus.valueOf(status)));

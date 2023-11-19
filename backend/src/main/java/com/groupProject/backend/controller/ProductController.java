@@ -111,7 +111,6 @@ public class ProductController {
      * @return Відповідь з кодом 204 (NO_CONTENT) у разі успішного видалення або кодом помилки, якщо товар не знайдено.
      */
     @DeleteMapping("/{productId}")
-    @PreAuthorize("hasRole('Manager')")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long productId) {
         logger.info("Received request to delete product by id{}", productId);
         if (!productService.getProductById(productId).isPresent()) {
